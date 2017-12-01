@@ -38,14 +38,6 @@ def packetDroneON():
 def packet2():
 	headerArray=bytearray([36,77,60])
 	valueArray=bytearray([])
-	roll=1500
-	pitch=1500
-	yaw=1500
-	throttle=1490
-	aux1=1200
-	aux2=1000
-	aux3=1500
-	aux4=1200
 	valueArray.extend(headerArray)
 	valueArray.append(00)
 	valueArray.append(108)
@@ -59,14 +51,6 @@ def packet2():
 def packet3():
 	headerArray=bytearray([36,77,60])
 	valueArray=bytearray([])
-	roll=1500
-	pitch=1500
-	yaw=1500
-	throttle=1490
-	aux1=1200
-	aux2=1000
-	aux3=1500
-	aux4=1200
 	valueArray.extend(headerArray)
 	valueArray.append(00)
 	valueArray.append(110)
@@ -80,14 +64,6 @@ def packet3():
 def packet4():
 	headerArray=bytearray([36,77,60])
 	valueArray=bytearray([])
-	roll=1500
-	pitch=1500
-	yaw=1500
-	throttle=1490
-	aux1=1200
-	aux2=1000
-	aux3=1500
-	aux4=1200
 	valueArray.extend(headerArray)
 	valueArray.append(00)
 	valueArray.append(255)
