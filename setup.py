@@ -7,7 +7,7 @@ setup(
     author = 'CuriosityGym',
     author_email = 'explore@curiositygym.com',
     url = 'https://github.com/CuriosityGym/Drone-API',
-    download_url = 'https://github.com/Locu-Unofficial/locu-python/tarball/0.1.1',
+    download_url = 'https://github.com/CuriosityGym/Drone-API/archive/0.2.tar.gz',
     keywords = ['multiwii', 'api', 'drone'], 
     classifiers = [],  
 )
