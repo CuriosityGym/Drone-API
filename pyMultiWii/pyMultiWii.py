@@ -1,7 +1,5 @@
-import socket
-import time, math
-
-class Drone:
+import socket,time,math
+class pyMultiWii:
     
     def __init__(self,TCP_IP, TCP_PORT):
         self.TCP_IP=TCP_IP
@@ -50,8 +48,8 @@ class Drone:
     def Connect(self):
         self.i=1
         print ("connect")
-        drone.sendPacket(self.Array)
-        data = drone.recieveResponse()
+        self.sendPacket(self.Array)
+        data = self.recieveResponse()
         print (data)
 
     def Arm(self):
@@ -61,15 +59,15 @@ class Drone:
             Val=self.changeCRC()
             self.Array[21]=Val
             print("Connected")
-            drone.sendPacket(self.Array)
-            data = drone.recieveResponse()
+            self.sendPacket(self.Array)
+            data = self.recieveResponse()
             print (data)
 
         else:
             self.Array[21]=0
             print("Not Connected")
-            drone.sendPacket(self.Array)
-            data = drone.recieveResponse()
+            self.sendPacket(self.Array)
+            data = self.recieveResponse()
             print (data)
 
     
@@ -78,8 +76,8 @@ class Drone:
         self.Array[20]=4
         Val=self.changeCRC()
         self.Array[21]=Val
-        drone.sendPacket(self.Array)
-        data = drone.recieveResponse()
+        self.sendPacket(self.Array)
+        data = self.recieveResponse()
         print (data)
     
     def setThrottle(self,value):            
@@ -89,8 +87,8 @@ class Drone:
         self.Array[10]=arr[1]
         Val=self.changeCRC()
         self.Array[21]=Val
-        drone.sendPacket(self.Array)
-        data = drone.recieveResponse()
+        self.sendPacket(self.Array)
+        data = self.recieveResponse()
         print (data)
     
     def setRoll(self,value):                  
@@ -100,8 +98,8 @@ class Drone:
         self.Array[6]=arr[1]
         Val=self.changeCRC()
         self.Array[21]=Val
-        drone.sendPacket(self.Array)
-        data = drone.recieveResponse()
+        self.sendPacket(self.Array)
+        data = self.recieveResponse()
         print (data)
     
     def SetPitch(self,value):                
@@ -111,8 +109,8 @@ class Drone:
         self.Array[8]=arr[1]
         Val=self.changeCRC()
         self.Array[21]=Val
-        drone.sendPacket(self.Array)
-        data = drone.recieveResponse()
+        self.sendPacket(self.Array)
+        data = self.recieveResponse()
         print (data)
 
     def SetYaw(self,value):              
@@ -122,8 +120,8 @@ class Drone:
         self.Array[12]=arr[1]
         Val=self.changeCRC()
         self.Array[21]=Val
-        drone.sendPacket(self.Array)
-        data = drone.recieveResponse()
+        self.sendPacket(self.Array)
+        data = self.recieveResponse()
         print (data)
 
     def sendPacket(self,lValueArray):
@@ -134,24 +132,3 @@ class Drone:
     
     def closeConnection(self):
         self.mySocket.close()
-
-        
-
-drone=Drone('192.168.4.1',23)
-drone.Connect()
-drone.Arm()
-drone.setThrottle(1000)       #ThrottleLow-1000,ThrottleHigh-2000
-#drone.setRoll()              #RollLow-1200(Left),RollHigh(Right)-1800
-#drone.SetPitch()             #Pitchlow-1200,PitchHigh-1800
-#drone.SetYaw()               #YawLow(Left)-1000,YawHigh(Right)-2000
-#drone.Disarm()
-
-while(True):
-    drone.setThrottle(1000)
-    
-    
-drone.closeConnection()
-            
-
-
-
