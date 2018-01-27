@@ -53,4 +53,22 @@ or let it hover a little
 
     myDrone.setThrottle(1200)// Increase Throttle
 
- 
+**Change Pitch**
+The Pitch values on MultiWii systems range from the range [1000, 2000]. The 1000 value is the lower range. 
+Get the drone to Pitch forward and back by setting a value here
+
+    myDrone.setPitch(1550)
+     
+
+
+**Change Roll**
+The Roll values on MultiWii systems range from the range [1000, 2000]. The 1000 value is the lower range. 
+Get the drone to Roll left and right back by setting a value here
+
+    myDrone.setRoll(1300)
+
+**Change Yaw**
+The Yaw values on MultiWii systems range from the range [1000, 2000]. The 1000 value is the lower range. 
+Get the drone to Yaw by setting a value here
+
+    myDrone.setYaw(1200) 
