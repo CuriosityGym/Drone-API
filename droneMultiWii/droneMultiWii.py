@@ -1,5 +1,5 @@
 import socket,time,math
-class pyMultiWii:
+class droneMultiWii:
     
     def __init__(self,TCP_IP, TCP_PORT):
         self.TCP_IP=TCP_IP
