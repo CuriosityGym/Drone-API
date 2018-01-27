@@ -1,10 +1,11 @@
 import socket,time,math
-class droneMultiWii:
+class droneAPI:
     
-    def __init__(self,TCP_IP, TCP_PORT):
+    def __init__(self,TCP_IP, TCP_PORT,debug=False):
         self.TCP_IP=TCP_IP
         self.TCP_PORT=TCP_PORT
         self.BUFFER_SIZE = 1024
+        self.debug=debug
         self.mySocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.mySocket.connect((TCP_IP, TCP_PORT))
         headerArray=bytearray([36,77,60])
@@ -30,8 +31,9 @@ class droneMultiWii:
         self.valueArray.extend([176,4])
         self.valueArray.append(234)
         self.Array=self.valueArray[:]
-        print(self.Array)
-        self.i=0
+        if(self.debug):
+            print(self.Array)
+        self.isConnected=False
         
     def changeCRC(self):
         self.CRCArray=self.Array[3:-1]
@@ -45,40 +47,42 @@ class droneMultiWii:
         self.MSB=math.floor(value/256)
         return bytearray([self.LSB,self.MSB])
 
-    def Connect(self):
-        self.i=1
-        print ("connect")
-        self.sendPacket(self.Array)
-        data = self.recieveResponse()
-        print (data)
+##    def connect(self):
+##        self.isConnected=True
+##        if(self.debug):        
+##            print ("Connected to Drone")            
+##        self.sendPacket(self.Array)
+        
+        
 
-    def Arm(self):
-        if self.i>0:
-            self.Array[19]=220
-            self.Array[20]=5
-            Val=self.changeCRC()
-            self.Array[21]=Val
+    def arm(self):           
+        self.Array[19]=220
+        self.Array[20]=5
+        Val=self.changeCRC()
+        self.Array[21]=Val
+        if(self.debug):
             print("Connected")
-            self.sendPacket(self.Array)
-            data = self.recieveResponse()
-            print (data)
+        self.sendPacket(self.Array)
+            
+            
 
-        else:
-            self.Array[21]=0
-            print("Not Connected")
-            self.sendPacket(self.Array)
-            data = self.recieveResponse()
-            print (data)
+##        else:
+##            self.Array[21]=0
+##            if(self.debug):
+##                print("Not Connected")
+##            self.sendPacket(self.Array)
+            
+            
 
     
-    def Disarm(self):
+    def disarm(self):
         self.Array[19]=176
         self.Array[20]=4
         Val=self.changeCRC()
         self.Array[21]=Val
         self.sendPacket(self.Array)
-        data = self.recieveResponse()
-        print (data)
+        
+        
     
     def setThrottle(self,value):            
         arr=bytearray([])
@@ -88,8 +92,7 @@ class droneMultiWii:
         Val=self.changeCRC()
         self.Array[21]=Val
         self.sendPacket(self.Array)
-        data = self.recieveResponse()
-        print (data)
+        
     
     def setRoll(self,value):                  
         arr=bytearray([])
@@ -99,10 +102,10 @@ class droneMultiWii:
         Val=self.changeCRC()
         self.Array[21]=Val
         self.sendPacket(self.Array)
-        data = self.recieveResponse()
-        print (data)
+        
+        
     
-    def SetPitch(self,value):                
+    def setPitch(self,value):                
         arr=bytearray([])
         arr.extend(self.getBytes(value))
         self.Array[7]=arr[0]
@@ -110,10 +113,10 @@ class droneMultiWii:
         Val=self.changeCRC()
         self.Array[21]=Val
         self.sendPacket(self.Array)
-        data = self.recieveResponse()
-        print (data)
+        
+        
 
-    def SetYaw(self,value):              
+    def setYaw(self,value):              
         arr=bytearray([])
         arr.extend(self.getBytes(value))
         self.Array[11]=arr[0]
@@ -121,8 +124,8 @@ class droneMultiWii:
         Val=self.changeCRC()
         self.Array[21]=Val
         self.sendPacket(self.Array)
-        data = self.recieveResponse()
-        print (data)
+        
+        
 
     def sendPacket(self,lValueArray):
         self.mySocket.send(lValueArray)
@@ -130,5 +133,5 @@ class droneMultiWii:
     def recieveResponse(self):
         return self.mySocket.recv(self.BUFFER_SIZE)
     
-    def closeConnection(self):
+    def disconnect(self):
         self.mySocket.close()
