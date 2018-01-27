@@ -1,12 +1,15 @@
+# **
 
-# **DroneAPI**
+DroneAPI
 
-
+**
 A Python package to control Drones that run the MultiWii Protocol. 
 
 ## **API Compatibility**
 
-Drona Aviation Pluto 
+ 
+
+ - Drona Aviation Pluto 
 
 
 ## **Using the Library**
