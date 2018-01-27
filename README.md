@@ -44,6 +44,7 @@ The drone once armed, is ready to fly.
 **Caution: Please fly responsibly and outdoors, away from people and pets.**
 
 **Increase Thottle**
+
 The Throttle values on MultiWii systems range from the range [1000, 2000]. The 1000 value is the lower range. 
 Get the drone to fly by setting a value here
 
