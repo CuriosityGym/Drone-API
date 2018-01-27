@@ -7,7 +7,7 @@ setup(
     author = 'CuriosityGym',
     author_email = 'explore@curiositygym.com',
     url = 'https://github.com/CuriosityGym/Drone-API',
-    download_url = 'https://github.com/CuriosityGym/Drone-API/archive/0.4.2.tar.gz',
+    download_url = 'https://github.com/CuriosityGym/Drone-API/archive/0.4.3.tar.gz',
     keywords = ['multiwii', 'api', 'drone', 'pluto', 'esp8266'], 
     classifiers = []
     
