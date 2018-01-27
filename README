@@ -1,4 +1,4 @@
-# **pyMultiWii**
+# **DroneAPI**
 
 A Python package to control Drones that run the MultiWii Protocol. 
 
@@ -13,21 +13,21 @@ A Python package to control Drones that run the MultiWii Protocol.
 
 First install the package from pip
 
-    pip install pyMultiWii
+    pip install droneAPI
 
 Import the Library in your Python Program
 
-    import pyMultiWii
+    import droneAPI
 
-Create an object to the class pyMultiWii
+Create an object to the class droneAPI
 
-    myDrone=pyMultiWii.pyMultiWii(IP, PORT)
+    myDrone=droneAPI.droneAPI(IP, PORT)
 The IP and the PORT parameters are specific to drones, but most common values are 192.168.4.1 and 23 respectively, for ESP8266 based Wifi Drones.
 
-    myDrone=pyMultiWii.pyMultiWii('192.168.4.1', 23)
+    myDrone=droneAPI.droneAPI('192.168.4.1', 23)
 You can enable some basic debugging by adding a third parameter above, set to True
 
-    myDrone=pyMultiWii.pyMultiWii('192.168.4.1', 23, True)
+    myDrone=droneAPI.droneAPI('192.168.4.1', 23, True)
 
 *If you experience lagging and erratic behavior, set the third variable to False or ignore it completely in the above statement.*  
 

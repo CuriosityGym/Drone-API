@@ -1,6 +1,6 @@
-import droneAPI
+import pyMultiWii
 import time
-myDrone=droneAPI.droneAPI("192.168.4.1", 23)
+myDrone=pyMultiWii.pyMultiWii("192.168.4.1", 23)
 #myDrone.Connect()
 
 myDrone.arm()
