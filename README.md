@@ -1,8 +1,5 @@
-# **
+# **DroneAPI**
 
-DroneAPI
-
-**
 A Python package to control Drones that run the MultiWii Protocol. 
 
 ## **API Compatibility**
