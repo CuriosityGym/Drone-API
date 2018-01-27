@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
     name = 'droneAPI',
     packages = ['droneAPI'], 
-    version = '0.1.1',
+    version = '0.4',
     description = 'droneAPI is a Python API Wrapper from Pluto Drone and other drones running MultiWii Protocol, over Wifi/ESP8266',
     author = 'CuriosityGym',
     author_email = 'explore@curiositygym.com',
